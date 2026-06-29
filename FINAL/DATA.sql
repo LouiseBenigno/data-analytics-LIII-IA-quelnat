@@ -1,3 +1,30 @@
+-- SELECT 
+--     st.region,
+--     SUM(s.net_amount) AS total_net_revenue,
+--     COUNT(s.transaction_id) AS total_transactions,
+--     AVG(s.net_amount) AS average_order_value
+-- FROM sales s
+-- LEFT JOIN Store st ON s.store_id = st.store_id
+-- GROUP BY st.region;
+
+-- SELECT 
+--     TRIM(p.category) AS clean_category,
+--     SUM(s.net_amount) AS total_net_revenue,
+--     COUNT(s.transaction_id) AS total_transactions,
+--     AVG(s.net_amount) AS average_order_value
+-- FROM sales s
+-- LEFT JOIN product p ON s.product_id = p.product_id
+-- GROUP BY TRIM(p.category);
+
+-- SELECT 
+--     TRIM(p.category) AS clean_category,
+--     SUM(s.net_amount) AS total_net_revenue
+-- FROM sales s
+-- LEFT JOIN product p ON s.product_id = p.product_id
+-- GROUP BY TRIM(p.category)
+-- HAVING SUM(s.net_amount) > 3000000;
+
+
 
 -- -- (a) All Luzon sales sorted by net_amount descending
 -- SELECT s.*
