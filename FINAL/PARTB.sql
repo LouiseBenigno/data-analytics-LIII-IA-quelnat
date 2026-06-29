@@ -1,0 +1,18 @@
+-- -- Star schema: sales (fact) joined to product, Store, and customer dimensions
+-- SELECT
+--     st.store_name,
+--     st.region,
+--     st.store_type,
+--     p.category,
+--     COALESCE(c.loyalty_tier, 'Walk-in') AS loyalty_tier,
+--     s.quantity,
+--     s.net_amount
+-- FROM sales AS s
+-- INNER JOIN product AS p
+--     ON s.product_id = p.product_id
+-- INNER JOIN Store AS st
+--     ON s.store_id = st.store_id
+-- LEFT JOIN customer AS c
+--     ON s.customer_id = c.customer_id
+-- WHERE TRIM(COALESCE(s.store_id, '')) <> ''
+--   AND TRIM(COALESCE(s.product_id, '')) <> '';

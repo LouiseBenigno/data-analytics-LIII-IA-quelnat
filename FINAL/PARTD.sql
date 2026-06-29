@@ -1,0 +1,71 @@
+-- SELECT 
+--     CASE 
+--         WHEN net_amount >= 0 AND net_amount < 100 THEN '0–99'
+--         WHEN net_amount >= 100 AND net_amount < 250 THEN '100–249'
+--         WHEN net_amount >= 250 AND net_amount < 500 THEN '250–499'
+--         WHEN net_amount >= 500 AND net_amount < 1000 THEN '500–999'
+--         WHEN net_amount >= 1000 AND net_amount < 2500 THEN '1000–2499'
+--         WHEN net_amount >= 2500 THEN '2500+'
+--         ELSE 'Negative/Error'
+--     END AS transaction_bin,
+--     COUNT(*) AS frequency
+-- FROM sales
+-- GROUP BY 
+--     CASE 
+--         WHEN net_amount >= 0 AND net_amount < 100 THEN '0–99'
+--         WHEN net_amount >= 100 AND net_amount < 250 THEN '100–249'
+--         WHEN net_amount >= 250 AND net_amount < 500 THEN '250–499'
+--         WHEN net_amount >= 500 AND net_amount < 1000 THEN '500–999'
+--         WHEN net_amount >= 1000 AND net_amount < 2500 THEN '1000–2499'
+--         WHEN net_amount >= 2500 THEN '2500+'
+--         ELSE 'Negative/Error'
+--     END
+-- ORDER BY MIN(net_amount);
+
+
+-- Reconciliation:
+-- Cleaned sales rows used for the join = 49036
+-- Joined rows returned by the query above = 49036
+-- Difference: none; blank customer_ids are preserved through the LEFT JOIN,
+-- and only rows with missing product/store identifiers are excluded.
+
+-- 19-20) Net value bins + frequency table (SQL CASE + GROUP BY)
+-- SELECT
+--     CASE
+--         WHEN net_amount BETWEEN 0 AND 99 THEN '0-99'
+--         WHEN net_amount BETWEEN 100 AND 249 THEN '100-249'
+--         WHEN net_amount BETWEEN 250 AND 499 THEN '250-499'
+--         WHEN net_amount BETWEEN 500 AND 999 THEN '500-999'
+--         WHEN net_amount BETWEEN 1000 AND 2499 THEN '1000-2499'
+--         WHEN net_amount >= 2500 THEN '2500+'
+--         ELSE 'Other'
+--     END AS net_bin,
+--     COUNT(*) AS freq
+-- FROM sales
+-- WHERE store_id IS NOT NULL
+--   AND TRIM(COALESCE(store_id, '')) <> ''
+--   AND product_id IS NOT NULL
+--   AND TRIM(COALESCE(product_id, '')) <> ''
+--   AND net_amount IS NOT NULL
+-- GROUP BY 1
+-- ORDER BY CASE net_bin
+--     WHEN '0-99' THEN 1
+--     WHEN '100-249' THEN 2
+--     WHEN '250-499' THEN 3
+--     WHEN '500-999' THEN 4
+--     WHEN '1000-2499' THEN 5
+--     WHEN '2500+' THEN 6
+--     ELSE 7
+-- END;
+
+-- 21) Histogram / pivot-chart guidance:
+-- Create a bar chart with net_bin on the X-axis and freq on the Y-axis.
+-- Add axis titles: 'Transaction Net Value Range' and 'Frequency'.
+
+-- 22) Interpretation:
+-- Mean net_amount = 552.78, median net_amount = 250.00.
+-- Because the mean is substantially higher than the median, the distribution is right-skewed.
+-- The typical basket is concentrated in the 100-249 and 250-499 ranges, while a long tail of
+-- larger transactions creates the higher mean. This suggests an upsell/bundling opportunity:
+-- promote add-ons or higher-value bundles to move more transactions from the common mid-range
+-- into the 500-999 and 1000-2499 bands.

@@ -1,0 +1,25 @@
+store_id,store_name,region,province,city,store_type,open_date
+S001,Bahaghari Quezon City,Luzon,Metro Manila,Quezon City,Flagship,2/21/2020
+S002,Bahaghari Makati,Luzon,Metro Manila,Makati,Flagship,8/6/2022
+S003,Bahaghari Manila,Luzon,Metro Manila,Manila,Standard,1/12/2020
+S004,Bahaghari Pasig,Luzon,Metro Manila,Pasig,Standard,10/8/2019
+S005,Bahaghari Taguig,Luzon,Metro Manila,Taguig,Express,7/13/2016
+S006,Bahaghari Caloocan ,Luzon,Metro Manila,Caloocan,Standard,1/4/2016
+S007,Bahaghari Calamba,Luzon,Laguna,Calamba,Standard,4/13/2022
+S008,Bahaghari Antipolo,Luzon,Rizal,Antipolo,Express,7/2/2016
+S009,Bahaghari Batangas City,Luzon,Batangas,Batangas City,Standard,1/18/2020
+S010,Bahaghari San Fernando,Luzon,Pampanga,San Fernando,Standard,2/25/2020
+S011,Bahaghari Malolos,Luzon,Bulacan,Malolos,Express,4/1/2017
+S012,Bahaghari Dagupan,Luzon,Pangasinan,Dagupan,Standard,4/26/2021
+S013,Bahaghari Laoag,Luzon,Ilocos Norte,Laoag,Express,11/13/2022
+S014,Bahaghari Iloilo City,no region,Iloilo,Iloilo City,Flagship,6/17/2019
+S015,Bahaghari Bacolod,Visayas,Negros Occidental,Bacolod,Standard,10/4/2016
+S016,Bahaghari Cebu City,Visayas,Cebu,Cebu City,Flagship,4/7/2020
+S017,Bahaghari Mandaue,Visayas,Cebu,Mandaue,Standard,4/20/2016
+S018,Bahaghari Lapu-Lapu,Visayas,Cebu,Lapu-Lapu,Express,2/26/2016
+S019,Bahaghari Tacloban,Visayas,Leyte,Tacloban,Standard,9/12/2017
+S020,Bahaghari Davao City,Mindanao,Davao del Sur,Davao City,Flagship,10/15/2016
+S021, Bahaghari Tagum,Mindanao,Davao del Norte,Tagum,Express,5/15/2022
+S022,Bahaghari Cagayan de Oro,Mindanao,Misamis Oriental,Cagayan de Oro,Standard,10/6/2022
+S023,Bahaghari Iligan,Mindanao,Lanao del Norte,Iligan,Express,12/11/2022
+S024,Bahaghari Zamboanga City,Mindanao,Zamboanga del Sur,Zamboanga City,Standard,8/18/2020
